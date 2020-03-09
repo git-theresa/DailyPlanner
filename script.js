@@ -5,24 +5,64 @@ $( document ).ready(function(){
 
 
     for (var i = 0; i < 8; i++) {
-    var $inputBox = $("<input>");
+    var inputBox = $("<input>");
     console.log(inputBox);
-    $(inputBox).attr("class", "input-group form-control mb-3");
+    $(inputBox).attr("class", "input-group form-control mb-3", "type", "text");
     $(".plannerContainer").append(inputBox);
+    // $(".plannerContainer").append(columnInputDiv);
+    // $(".plannerContainer").append(columnHourDiv);
+    // $(".plannerContainer").append(columnSaveDiv);
    
-      
-    var saveBtn = $("<button>");
-    $(saveBtn).attr("class","input-group-append column-flex btn-primary input-group-append fa fa-save");
-    console.log(saveBtn);
-    $(".plannerContainer").append($(saveBtn)).after(inputBox);
-     
+    var columnInputDiv = $("<div>");
+    columnInputDiv.attr("class","col-md-6");
+
     
-  var hour = $("<input>");
-  $(hour).attr("class", "input-group-prepend data-time");
-  $("#hour").prepend($(inputBox)).before(inputBox);
+
+    var columnSaveDiv = $("<div>");
+    columnSaveDiv.attr("col-md-2");
+ 
+
+    var saveBtn = $("<i>");
+    saveBtn.attr("class","input-group-append  input-group-text btn-primary fa fa-save");
+    console.log(saveBtn);
+    inputBox.after(saveBtn);
+   
+    
+  var hour = document.createElement("input");
+  hour.setAttribute("class", "input-group-prepend data-time");
+  console.log(hour);
+  inputBox.before(hour);
+   
+}    
+
+var currentHour = moment().format("h");
+var displayHour = 0;
+var amPm= "";
 
 
-    }
+
+var rowDiv = $("<div>");
+rowDiv.attr("class", "row");
+rowDiv.attr("class", "inputRow");
+rowDiv.attr("class", "hour-index", currentHour);
+
+var columnHourDiv = $("<div>");
+    columnHourDiv.addClass("col-md-2");
+var columnHourSpan = $("<span>");
+columnHourSpan.attr("class", currentHour);
+
+if (currentHour > 12) {
+displayHour = currentHour - 12;
+amPm = "pm";
+}
+else{
+        displayHour = currentHour;
+    amPm = "am";
+};
+
+columnHourSpan.text("${displayHour}${amPm");
+rowDiv.append(columnHourDiv);
+columnHourDiv.append(columnHourSpan);
     // // This function handles events where one button is clicked
     // $("saveBtn").on("click", function(event) {
     //     // Preventing the buttons default behavior when clicked (which is submitting a form)
@@ -36,25 +76,25 @@ $( document ).ready(function(){
     //     // Calling renderButtons which handles the processing of our movie array
     //     renderButtons();
 
-createTimeBlocks = () => {
-    let blocks = "";
-    for (let i = 0; i < workHours.length; i++) {
-        const hourBlock = "" +
-            '<div class="input-group mb-3">' +
-            '<div class="input-group-prepend">' +
-            '<span class="input-group-text">' + workHours[i] + '</span>' +
-            '</div>' +
-            '<input type="text" class="form-control" id="' + workHours[i] + '">' +
-            '<div class="input-group-append">' +
-            '<button class="btn btn-primary" data-time="' + workHours[i] + '"><i class="fa fa-save"></i></button>' +
-            '</div>' +
-            '</div>';
-        blocks += hourBlock;
-        console.log(hourBlock);
-    }       
-     $("#timeBlocks").prepend(blocks);
+// createTimeBlocks = () => {
+//     let blocks = "";
+//     for (let i = 0; i < workHours.length; i++) {
+//         const hourBlock = "" +
+//             '<div class="input-group mb-3">' +
+//             '<div class="input-group-prepend">' +
+//             '<span class="input-group-text">' + workHours[i] + '</span>' +
+//             '</div>' +
+//             '<input type="text" class="form-control" id="' + workHours[i] + '">' +
+//             '<div class="input-group-append">' +
+//             '<button class="btn btn-primary" data-time="' + workHours[i] + '"><i class="fa fa-save"></i></button>' +
+//             '</div>' +
+//             '</div>';
+//         blocks += hourBlock;
+//         console.log(hourBlock);
+//     }       
+//      $("#timeBlocks").prepend(blocks);
  
 
-}
+// }
 
 });
