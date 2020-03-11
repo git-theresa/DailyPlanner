@@ -9,7 +9,7 @@ $(document).ready(function() {
 //   ".present" is pink $("inputBox").css("background-color", );
   for (var i = 0; i < hours.length; i++) {
     var colorTime;
-    if (moment().hours() === hours[i]) {
+    if (moment().hour() == hours[i]) {
       colorTime = "present";
     }
     else if (moment().hours() > hours[i]) {
@@ -54,31 +54,33 @@ $(document).ready(function() {
     console.log(displayHours);
     console.log(amPm);
   }
- userInput = (" ");
-  function renderUserInput() {
-    var userInput = localStorage.getItem("userInput");
-    if (userInput === null) {
-      return;
-    }
-    userInputSpan.textContent = userInput;
-    //renderUserInput();
-  }
+  
+ 
+  // function renderUserInput() {
+    
+  // }
+  //  renderUserInput();
+  
    
   // // This function handles events where one button is clicked
   $(".saveBtn").on("click", function(event) {
     event.preventDefault();
-
     console.log("Save button has been clicked");
-    var userInput = $(".userInput").val();
+    var userInput = $("typedText-input").val();;
     console.log(userInput);
+typedText = ("");
+    if (typedText === null) {
+      return;
+    }
+    typedText.textContent = userInput;
+   localStorage.setItem("typedText" , userInput);
+  })
+  //   var userInput = $("9-input").val();;
+  //   console.log(userInput);
+  //  localStorage.setItem("data-time=${hours[i]}", userInput)
+
+    // Render a new li for each todo
+    // Return from function early if submitted todoText is blank
+}); 
 
 
-    localStorage.setItem($(this).attr("data-time"), userInput);
-
-   
-    renderUserInput();
-  });
- 
-
-//  End of document.ready 
-});
