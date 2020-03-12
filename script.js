@@ -3,37 +3,40 @@ $(document).ready(function() {
   console.log(now);
   $("#currentDay").append(now);
 
-    var hours = moment().format("h");
+    
+  var hours = moment().format("h");
+  var hours = ["7", "8", "9", "10", "11", "12", "1", "2", "3", "4", "5"];
   
-  var hours = ["09", "10", "11", "12", "1", "2", "3", "4", "5"];
-//   ".present" is pink $("inputBox").css("background-color", );
+//   ".present" is pink $("inputBox").css("background-color", ); 
+// save color changes
+  // css classes ".past" is white  / ".present" is pink   / ".future" is green #77dd77
   for (var i = 0; i < hours.length; i++) {
     var colorTime;
-    if (moment().hour() == hours[i]) {
-      colorTime = "present";
+    if (moment().hour() === parseInt(hours[i])) {
+      colorTime = "present"; 
+      
     }
-    else if (moment().hours() > hours[i]) {
+      else if (moment().hour() < parseInt(hours[i])) {
       colorTime = "future";
     } 
-     else if (moment().hours() < hours[i]) {
+     else if (moment().hour() > parseInt(hours[i])) {
       colorTime = "past";
     }
     var inputBox = $(`<div class="input-group mb-3"${colorTime}'><div class="input-group-prepend">
-    <span class="input-group-text">${hours[i]}:00</span>
+    <span class="input-group-text" id="timePlans">${hours[i]}:00</span>
       </div>
 
       <input type="text" class="form-control user-input ${colorTime}">
       <div class="input-group-append">
         <span class="input-group-text">
-        <button class = "saveBtn" data-time="${hours[i]}"><i class= 'fas fa-save'></i>
+        <button class = "saveBtn"  data-time="${hours[i]}"><i class= 'fas fa-save'></i>
         </span>
       </div>
       </div>`);
     $(".plannerContainer").append(inputBox);
   }
- // save color changes
-  // css classes ".past" is white  / ".present" is pink   / ".future" is green #77dd77
-//   $("inputBox").mouseover(function(){
+
+//   $(inputBox).mouseover(function(){
 //       $("inputBox").css("background-color", "#ff6961");
 //     }
 //     // $("inputBox").mouseout(function(){
@@ -41,12 +44,10 @@ $(document).ready(function() {
 //     // }
 //   console.log(inputBox);
 
-  
   var displayHours = 0;
   var amPm = "";
-
-  if (hours > 12) {
-    displayHours = hours + 12;
+  if ((hours) > 12) {
+    displayHours = hours.length + 12;
     amPm = "pm";
   } else {
     displayHours = hours;
@@ -54,7 +55,7 @@ $(document).ready(function() {
     console.log(displayHours);
     console.log(amPm);
   }
-  
+
  
   // function renderUserInput() {
     
@@ -65,15 +66,16 @@ $(document).ready(function() {
   // // This function handles events where one button is clicked
   $(".saveBtn").on("click", function(event) {
     event.preventDefault();
+    var timePlans =JSON.stringify(hours[i]);
     console.log("Save button has been clicked");
-    var userInput = $("typedText-input").val();;
+    var userInput = $("#timePlans-input").val();;
     console.log(userInput);
-typedText = ("");
-    if (typedText === null) {
+    timePlans = ("");
+    if (timePlans === null) {
       return;
     }
-    typedText.textContent = userInput;
-   localStorage.setItem("typedText" , userInput);
+    timePlans.textContent = userInput;
+   localStorage.setItem("saveBtn" , userInput);
   })
   //   var userInput = $("9-input").val();;
   //   console.log(userInput);
