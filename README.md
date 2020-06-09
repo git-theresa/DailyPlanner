@@ -1,26 +1,37 @@
+<img align="left" src= "https://img.shields.io/badge/License-MIT-green">
+
+<img align="right" width="100" height="100" src="https://avatars2.githubusercontent.com/u/57425164?v=4">
+
+# 
+
+#   
+
 # DailyPlanner
 
-# LiveLink
+## LiveLink
  https://git-theresa.github.io/DailyPlanner/
+
+ ## Description
+ Daily Planner allows users to schedule their day and save the agenda. The daily planner is color coded for time past, present, and future. Daily Planner is also updated in real date and time upon opening the application.
+
+ <img src="assets/planner.png" alt="screenshot"/>
  
 
-# Contributor
-@git-theresa
 
-# Tecnology Stack
+
+## Tecnology Stack
 * HTML
 * CSS
 * Bootstrap
 * JavaScript
 * jQuery
 
-# About
-This is a daily planner schedule that is updated by the current date and time. Users can add to the schedule and save "To Do" input.
 
-# License
-MIT
+### Contributor
+@git-theresa
 
-# Contact
-* Name: Theresa Eatherly [@git-theresa](@git-theresa)
-* Webpage: https://github.com/git-theresa/DailyPlanner
-* e-mail: [t.eatherly@gmail.com](t.eatherly@gmail.com)
+### Contact
+* :computer:  GitHub: [https://github.com/git-theresa](https://github.com/git-theresa) 
+* :e-mail:  Email: [t.eatherly@gmail.com](t.eatherly@gmail.com)
+* :earth_americas:  LinkedIn: [https://www.linkedin.com/in/theresa-eatherly-4362b14a/](https://www.linkedin.com/in/theresa-eatherly-4362b14a/)
+
